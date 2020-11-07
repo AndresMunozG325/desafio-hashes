@@ -1,9 +1,10 @@
-def itera1(hash_ventas)
-    hash_ventas.each do |k, v|
-        print " #{k} " if v > 45000
+def filter(hash, parametro)
+    nuevo_hash = {}
+    hash.each do |k, v|
+        nuevo_hash[k] = v if v > parametro
     end
-end 
-
+    nuevo_hash
+end
 ventas = {
     Enero: 15000,
     Febrero: 22000,
@@ -18,4 +19,5 @@ ventas = {
     Noviembre: 91000,
     Diciembre: 21000
     }
-    itera1(ventas)
+
+filter(ventas, ARGV[0].to_i)
